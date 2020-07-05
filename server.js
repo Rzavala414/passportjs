@@ -5,8 +5,9 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 app.set('view engine', 'ejs');
+app.use('/auth', require('./routes/auth-routes'));
 
-app.get('/auth', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home');
 });
 
