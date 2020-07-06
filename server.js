@@ -1,6 +1,6 @@
 const express = require('express');
-
 const app = express();
+const passportSetup = require('./config/passport-setup')
 
 const PORT = process.env.PORT || 3000
 

@@ -1,13 +1,16 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
-const keys = require('./keys')
+const keys = require('./keys');
+
 passport.use(
     new GoogleStrategy({
         //options for the google strategy
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: "http://localhost:3000/auth/google/redirect"
-    }, () => {
-        //passport callback
+        callbackURL: "/auth/google/redirect"
+    }, (accessToken, refreshToken, profile, done) => {
+        User.findOrCreate({ googleId: profile.id }, function (err, user) {
+          return cb(err, user);
+        });
     })
 );
