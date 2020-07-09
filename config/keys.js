@@ -7,3 +7,5 @@ module.exports = {
         dbURI:"mongodb+srv://roger:roger123@authtest.j1imy.mongodb.net/authTest?retryWrites=true&w=majority"
     }
 }
+
+// we will be commit a ntherjjf
